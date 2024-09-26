@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+/* Estilos generales */
+
+.space-grotesk {
+    font-family: "Space Grotesk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #000;
+  }
+
+body {
+    background-color: #000; /* Fondo negro */
+    color: #c4c4c4 /* Letras blancas */
+    
+} 
+
+/* Contenedor desplegable */
+.collapsible {
+    width: 100%; /* Ancho completo de la pantalla */
+    margin: 0; /* Sin márgenes */
+    border: 1px solid #0a0a0a; /* Bordes sutiles */
+    background-color: #000; /* Fondo negro */
+}
+
+/* Encabezado del contenedor */
+.collapsible .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #0a0a0a; /* Fondo gris oscuro para destacar */
+    color: rgb(211, 211, 211); /* Letras blancas */
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #0a0a0a;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio de color al pasar el ratón */
+.collapsible .header:hover {
+    background-color: #111111; /* Fondo un poco más claro */
+}
+
+/* Flecha de despliegue */
+.collapsible .header .arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Contenido oculto del contenedor */
+.collapsible .content {
+    padding: 15px;
+    background-color: #050505; /* Fondo negro */
+    display: none; /* Inicialmente oculto */
+}
+
+/* Estilo del texto del contenido */
+.collapsible .content {
+    margin: 0;
+    color: #c4c4c4; /* Texto blanco */
+}
+
+
+.background {
+    background-image: url(../img/cabecera1.jpg);
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 100%;
+    height: 100vh; /* Hace que la sección ocupe la altura completa de la ventana */
+}
+
+.logo{
+    width: 100%;
+    height: 100%;
+}
+
+.imgfit {
+    width: 80%;
+    border-radius: 4px;
+    display: block; /* Asegura que el margen funcione */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    margin-bottom: 10%;
+}
+
+h2{
+    color: #c4c4c4 !important;
+    font-size: 25px !important;
+    font-weight: 600 !important;
+    margin-left: 10% ;
+    margin-right: 10%;
+}
+
+p{
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
+    margin-left: 10% ;
+    margin-right: 10%;
+}
+
+.divpro {
+    margin-bottom: 15%;
+    margin-top: 10%;
+    text-align:justify; /* Opcional, por si también hay contenido de texto que necesitas centrar */
+    font-weight: 100;
+    
+}
+
+.whatsapp-icon {
+    color: #ffffff; /* Cambia el color a blanco */
+
+}
+
+.foot{
+    background-color: #080808;
+}
+
+  
