@@ -63,7 +63,6 @@ body {
     font-weight: bold;
 }
 
-
 .arrow {
     float: right; /* Alinea la flecha a la derecha */
     font-size: 1rem;
@@ -130,13 +129,11 @@ p{
 }
 
 /* Estilo del footer */
-/* Estilo del footer */
 footer {
     background-color: #000000;
     padding: 5rem 0;
     position: relative; /* Asegura que el footer no quede debajo de otros elementos */
     width: 100%;
-    
 }
 
 .whatsapp-icon a {
@@ -144,7 +141,6 @@ footer {
     color: #ffffff; /* Color blanco */
     text-decoration: none; /* Elimina el subrayado del enlace */
     display: inline-block; /* Asegura que el logo se centre correctamente */
-    
 }
 
 .whatsapp-icon {
@@ -153,7 +149,6 @@ footer {
     align-items: center;
     height: 100%; /* Asegura que el icono se centre en el espacio del footer */
 }
-
 
 /* Responsive Design */
 @media (min-width: 768px) {

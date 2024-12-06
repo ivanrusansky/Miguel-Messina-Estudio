@@ -67,15 +67,13 @@
     </section>
 
     <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="whatsapp-icon">
-        <a href="https://wa.me/1150419791" target="_blank" title="Contáctanos vía WhatsApp">
-            <img src="./img/whatsapp.png" width="70px" alt="logo wpp">
-        </a>
-    </div>
-</footer>
-
+    <footer>
+        <div class="whatsapp-icon">
+            <a href="https://wa.me/1150419791" target="_blank" title="Contáctanos vía WhatsApp">
+                <img src="./img/whatsapp.png" width="70px" alt="logo wpp">
+            </a>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -83,24 +81,28 @@
             const navbarMenu = document.getElementById('navbar-menu');
 
             navbarToggler.addEventListener('click', () => {
-                navbarMenu.classList.toggle('active');
+                navbarMenu.classList.toggle('active'); // Alterna la clase "active" para mostrar o esconder el menú
             });
 
-            // Toggle content visibility for each section
+            // Mejorar la sensibilidad del clic en los elementos del menú
             document.querySelectorAll('.header').forEach(header => {
                 header.addEventListener('click', () => {
                     const content = header.nextElementSibling;
-                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    if (content) {
+                        // Alterna la visibilidad del contenido
+                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
 
-                    // Close other contents
-                    document.querySelectorAll('.content').forEach(c => {
-                        if (c !== content) {
-                            c.style.display = 'none';
-                        }
-                    });
+                        // Asegura que solo un contenido esté abierto a la vez
+                        document.querySelectorAll('.content').forEach(c => {
+                            if (c !== content) {
+                                c.style.display = 'none';
+                            }
+                        });
+                    }
                 });
             });
         });
     </script>
+
 </body>
 </html>
