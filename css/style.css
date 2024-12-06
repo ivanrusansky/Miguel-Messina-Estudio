@@ -11,7 +11,7 @@
 
 body {
     background-color: #000; /* Fondo negro */
-    color: #ececec; /* Letras claras */
+    color: #f8f8f8; /* Letras claras */
     margin: 0;
     display: flex;
     flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
@@ -30,7 +30,7 @@ body {
 
 .navbar-toggler {
     font-size: 2rem;
-    color: #ececec;
+    color: #f8f8f8;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -59,7 +59,7 @@ body {
     padding: 0.8rem 1rem;
     font-size: 1.2rem;
     background-color: #0a0a0a;
-    color: rgb(238, 237, 237);
+    color: #f8f8f8;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease; /* Añadido efecto visual */
@@ -110,7 +110,7 @@ body {
 
 /* Estilo de los títulos */
 h2 {
-    color: #ecebeb;
+    color: #f8f8f8;
     font-size: 1.5rem;
     font-weight: 600;
     text-align: justify;
@@ -140,7 +140,7 @@ footer {
 
 .whatsapp-icon a {
     font-size: 5rem; /* Aumenta el tamaño del logo */
-    color: #ffffff; /* Color blanco */
+    color: #f8f8f8; /* Color blanco */
     text-decoration: none; /* Elimina el subrayado del enlace */
     display: inline-block; /* Asegura que el logo se centre correctamente */
 }
