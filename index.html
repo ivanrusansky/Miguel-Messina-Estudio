@@ -20,13 +20,11 @@
                         <h2 class="h2">Living Abierto con Conexión al Bosque.</h2>
                         <p class="ptext">Un living luminoso con amplia ventana que integra el bosque, realzado por detalles en madera.</p>
                     </div>
-
                     <div class="divpro">
                         <img class="imgfit" src="./img/interiorh2.jpg" alt="">
                         <h2 class="h2">Habitación Tranquila con Vista Natural.</h2>
                         <p class="ptext">Habitación serena con vista al bosque y acabados en madera que promueven el descanso.</p>
                     </div>
-
                     <div class="divpro">
                         <img class="imgfit" src="./img/interiorh3.jfif" alt="">
                         <h2 class="h2">Habitación Minimalista con Acabados en Madera.</h2>
@@ -75,30 +73,28 @@
         </div>
     </footer>
 
+    <!-- JavaScript integrado -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navbarToggler = document.getElementById('navbar-toggler');
             const navbarMenu = document.getElementById('navbar-menu');
 
             navbarToggler.addEventListener('click', () => {
-                navbarMenu.classList.toggle('active'); // Alterna la clase "active" para mostrar o esconder el menú
+                navbarMenu.classList.toggle('active');
             });
 
-            // Mejorar la sensibilidad del clic en los elementos del menú
+            // Toggle content visibility for each section
             document.querySelectorAll('.header').forEach(header => {
                 header.addEventListener('click', () => {
                     const content = header.nextElementSibling;
-                    if (content) {
-                        // Alterna la visibilidad del contenido
-                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
 
-                        // Asegura que solo un contenido esté abierto a la vez
-                        document.querySelectorAll('.content').forEach(c => {
-                            if (c !== content) {
-                                c.style.display = 'none';
-                            }
-                        });
-                    }
+                    // Close other contents
+                    document.querySelectorAll('.content').forEach(c => {
+                        if (c !== content) {
+                            c.style.display = 'none';
+                        }
+                    });
                 });
             });
         });
