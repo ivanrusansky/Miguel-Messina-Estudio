@@ -111,7 +111,7 @@ body {
 /* Estilo de los títulos */
 h2 {
     color: #f8f8f8;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     text-align: justify;
 }
@@ -124,7 +124,9 @@ h2 {
 
 p{
     text-align: justify !important;
+    font-size: 90%;
 }
+
 
 .divpro {
     margin-bottom: 2rem;
@@ -139,7 +141,6 @@ footer {
 }
 
 .whatsapp-icon a {
-    font-size: 5rem; /* Aumenta el tamaño del logo */
     color: #f8f8f8; /* Color blanco */
     text-decoration: none; /* Elimina el subrayado del enlace */
     display: inline-block; /* Asegura que el logo se centre correctamente */
