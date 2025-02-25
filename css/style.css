@@ -1,162 +1,423 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;0,800;1,300;1,700;1,800&display=swap');
 
 /* Estilos generales */
-.space-grotesk {
-    font-family: "Space Grotesk", system-ui;
-    font-weight: 400;
-    background-color: #000;
-    margin: 0;
-    padding: 0;
+.noto-sans {
+    font-family: "Poppins", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
 }
 
 body {
-    background-color: #000; /* Fondo negro */
-    color: #f8f8f8; /* Letras claras */
+    background-color: #ffffff;
+    color: #000000;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
-    min-height: 100vh; /* Asegura que el cuerpo tenga al menos la altura de la ventana */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Estilo del navbar */
 .navbar {
-    background-color: #0a0a0a;
+    background-color: #f8f8f8;
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espaciado entre elementos */
-    flex-wrap: wrap; /* Permite ajustar el contenido en pantallas pequeñas */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 20; /* Aseguramos que el navbar esté por encima del carrusel */
 }
 
 .navbar-toggler {
-    font-size: 2rem;
-    color: #f8f8f8;
+    font-size: 1.8rem;
+    color: #000000;
     cursor: pointer;
     background-color: transparent;
     border: none;
-    display: block; /* Siempre visible */
+    display: block;
+    margin: -0.5%;
+    margin-bottom: -1%;
 }
 
 .navbar-menu {
-    display: none; /* Oculto por defecto */
     flex-direction: column;
     width: 100%;
     margin-top: 1rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 .navbar-menu.active {
-    display: flex; /* Muestra el menú si está activo */
-    background-color: #0a0a0a;
+    max-height: 3000px; /* Aumentado para dar espacio a las imágenes completas */
+    opacity: 1;
+    background-color: #f8f8f8;
     padding: 0.5rem 0;
 }
 
 /* Estilo del contenido desplegable */
 .menu-item {
     margin: 0.5rem 0;
+    position: relative;
 }
 
 .header {
     padding: 0.8rem 1rem;
     font-size: 1.2rem;
-    background-color: #0a0a0a;
-    color: #f8f8f8;
+    background-color: #f8f8f8;
+    color: #000000;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease; /* Añadido efecto visual */
+    font-weight: 300;
+    transition: transform 0.2s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    z-index: -1;
+}
+
+.header:hover {
+    transform: translateX(5px);
 }
 
 .arrow {
-    float: right; /* Alinea la flecha a la derecha */
+    float: right;
     font-size: 1rem;
 }
 
 .content {
-    padding: 0.8rem 1rem;
-    background-color: #0a0a0a;
-    display: none; /* Oculto por defecto */
-}
-
-/* Estilo del logo */
-.logo {
-    width: 100%;
-    max-width: 600px; /* Reduce el tamaño máximo en pantallas grandes */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Estilo del contenedor de la imagen de fondo */
-.background {
-    background-image: url(../img/cabecera.jpg);
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 60vh; /* Ajusta la altura para que no ocupe más espacio del necesario */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Estilo de las imágenes */
-.imgfit {
-    width: 90%;
-    max-width: 500px; /* Límite máximo para pantallas grandes */
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-}
-
-/* Estilo de los títulos */
-h2 {
-    color: #f8f8f8;
-    font-size: 1.2rem;
+    padding: 0; /* Eliminamos padding para que los carruseles usen todo el espacio */
+    background-color: #f8f8f8;
     font-weight: 600;
-    text-align: justify;
+    margin: 0; /* Eliminamos márgenes para evitar espacios extra */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+    position: relative; /* Aseguramos que el contenido fluya normalmente */
 }
 
-.ptext {
-    margin-top: 1rem;
-    text-align:start;
-    font-size: 0.9rem;
+.content.active {
+    max-height: 3000px; /* Aumentado para dar espacio a las imágenes completas */
+    opacity: 1;
 }
 
-p{
-    text-align: justify !important;
-    font-size: 90%;
+/* Estilo de los carruseles en Proyectos (mobile, max-width: 767px) */
+#proyectos-content .d-md-none h2.h2s {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+    padding: 0 1rem; /* Añadimos padding solo al título para mantener un poco de espacio */
 }
 
-
-.divpro {
+#proyectos-content .d-md-none .carousel {
     margin-bottom: 2rem;
+    width: 100% !important; /* Usamos 100% del ancho del contenedor padre */
+    padding: 0; /* Sin padding interno */
+    margin-left: 0; /* Eliminamos márgenes laterales */
+    margin-right: 0%; /* Eliminamos márgenes laterales */
+}
+
+#proyectos-content .d-md-none .carousel-inner {
+    width: 100%;
+    height: auto; /* Permitimos que el contenedor se adapte a la imagen */
+    margin: 0; /* Sin márgenes */
+}
+
+#proyectos-content .d-md-none .carousel-inner img {
+    width: 100%;
+    height: auto; /* Imágenes completas sin recorte */
+    object-fit: contain; /* Mantiene la proporción sin recortar */
+    border-radius: 4px; /* Eliminamos el borde para que ocupe todo el ancho */
+    filter: brightness(80%);
+    transition: transform 0.5s ease;
+}
+
+#proyectos-content .d-md-none .carousel-inner img:hover {
+    transform: scale(1.02);
+}
+
+#proyectos-content .d-md-none .carousel-control-prev,
+#proyectos-content .d-md-none .carousel-control-next {
+    width: 10%; /* Reducimos el ancho para un diseño más compacto */
+    opacity: 0.7; /* Ajustamos opacidad para mejor visibilidad */
+}
+
+#proyectos-content .d-md-none .carousel-control-prev-icon,
+#proyectos-content .d-md-none .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7); /* Mantenemos el fondo oscuro */
+    border-radius: 50%;
+    padding: 10px; /* Reducimos el padding para hacer los círculos más pequeños */
+    width: 20px; /* Mantenemos el tamaño de las flechas */
+    height: 20px; /* Mantenemos el tamaño de las flechas */
+    background-size: 60%; /* Ajustamos el tamaño de las flechas dentro del círculo */
+}
+
+/* Estilo de las galerías en Proyectos (PC, min-width: 768px) */
+#proyectos-content .d-none.d-md-block .gallery-section {
+    margin-bottom: 2rem;
+    padding: 0; /* Sin padding interno */
+}
+
+#proyectos-content .d-none.d-md-block .gallery-section h2.h2s {
+    color: #000000;
+    font-size: 3.1rem;
+    font-weight: 300;
+    text-align: start;
+    margin: 1.5rem 0 1rem;
+    margin-top: 6%;
+    padding: 0 1rem; /* Añadimos padding solo al título para mantener un poco de espacio */
+}
+
+#proyectos-content .d-none.d-md-block .gallery {
+    display: flex;
+    flex-wrap: nowrap; /* Imágenes en una fila sin romper */
+    justify-content: flex-start; /* Alineamos las imágenes al inicio */
+    gap: 0; /* Sin espacio entre imágenes */
+    padding: 0; /* Sin padding interno */
+    margin: 0; /* Sin márgenes */
+    overflow-x: auto; /* Permite desplazamiento horizontal si las imágenes exceden el ancho */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en mobile si es necesario */
+    scrollbar-width: thin; /* Firefox: barra de desplazamiento fina */
+    scrollbar-color: #000000 transparent; /* Firefox: barra negra, fondo transparente */
+}
+
+/* Estilo personalizado de la barra de desplazamiento para navegadores WebKit (Chrome, Safari, Edge) */
+#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar {
+    width: 6px; /* Ancho de la barra (fina) */
+    height: 6px; /* Altura de la barra (fina) */
+}
+
+#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-track {
+    background: transparent; /* Fondo transparente */
+}
+
+#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Barra negra */
+    border-radius: 3px; /* Bordes ligeramente redondeados para minimalismo */
+}
+
+#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-thumb:hover {
+    background-color: #333333; /* Cambia a un gris oscuro al pasar el ratón, manteniendo minimalismo */
+}
+
+#proyectos-content .d-none.d-md-block .gallery-img {
+    width: 600px; /* Tamaño exacto de las imágenes según tu solicitud */
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Ajusta las imágenes para llenar el espacio sin distorsionar */
+    border-radius: 0 ; /* Sin bordes redondeados */
+    filter: brightness(80%);
+    
+}
+
+
+/* Estilo del carrusel principal (mobile y desktop) */
+.carousel-mobile,
+.carousel-desktop {
+    position: relative;
+    width: 100%;
+    z-index: 10; /* Por debajo del navbar pero visible */
+}
+
+.carousel-mobile .carousel-inner,
+.carousel-desktop .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: auto; /* Restauramos altura natural */
+}
+
+.carousel-mobile .carousel-item img,
+.carousel-desktop .carousel-item img {
+    filter: brightness(70%);
+    width: 100%;
+    height: auto; /* Escala original */
+    animation: fadeInImage 1s ease-in-out;
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.carousel-fade .carousel-item {
+    transition: opacity 3s ease-in-out;
+}
+
+.background {
+    position: absolute;
+    z-index: 15; /* Encima de las imágenes del carrusel pero debajo del navbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    animation: fadeInLogo 1.5s ease-in-out;
+}
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-desktop .logo {
+    max-width: 300px;
+}
+
+/* Ocultar carrusel original en PC */
+@media (min-width: 768px) {
+    .carousel-mobile {
+        display: none;
+    }
+}
+
+/* Ocultar nuevo carrusel en mobile */
+@media (max-width: 767px) {
+    .carousel-desktop {
+        display: none;
+    }
 }
 
 /* Estilo del footer */
 footer {
-    background-color: #000000;
-    padding: 5rem 0;
-    position: relative; /* Asegura que el footer no quede debajo de otros elementos */
-    width: 100%;
-}
-
-.whatsapp-icon a {
-    color: #f8f8f8; /* Color blanco */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    display: inline-block; /* Asegura que el logo se centre correctamente */
-}
-
-.whatsapp-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Asegura que el icono se centre en el espacio del footer */
+    margin: 2.5% 0;
+    padding: 5px 10px;
+    width: auto;
+    background-color: #fff;
+    position: relative; /* Fluye normalmente en el diseño */
+    z-index: 20; /* Por encima del carrusel */
 }
 
-/* Responsive Design */
+footer div {
+    margin: 0 30px;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+footer div:hover {
+    transform: scale(0.9);
+}
+
+/* Ajustes específicos para mobile */
+@media (max-width: 767px) {
+    footer div {
+        margin: 0 15px;
+    }
+
+    .imgmigue {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        margin-top: 10%;
+        margin-bottom: -5%;
+        border-radius: 4px;
+    }
+
+    .acerca-migue-text {
+        text-align: justify !important;
+        margin: 3%;
+        margin-top: -20%;
+    }
+
+    .pservicios{
+
+            text-align: justify !important;
+            margin: 3%;
+            
+        }
+    
+
+    .miguepre {
+        font-size: 1.3rem !important;
+        font-weight: 300;
+        
+    }
+}
+
+/* Estilo para la sección Acerca de Migue en PC */
+@media (min-width: 768px) {
+    .acerca-migue-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .acerca-migue-text {
+        width: 50%;
+        margin-left: 2%;
+        text-align: justify !important;
+        
+    }
+
+    .pservicios{
+
+        text-align: justify !important;
+        margin: 5%;
+        margin-top: 5%;
+        
+    }
+
+    .imgmigue {
+        width: 450px;
+        max-width: 50%;
+        margin-top: 0;
+        margin-left: 7.5%;
+        display: block;
+        border-radius: 4px;
+    }
+
+    .carousel-desktop .logo {
+        max-width: 250px;
+    }
+}
+
+.miguepre {
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+/* Responsive Design para navbar */
 @media (min-width: 768px) {
     .navbar-menu {
-        flex-direction: column; /* Mantiene el menú colapsable */
-        width: 100%; /* Permite ocupar el ancho completo */
+        flex-direction: column;
+        width: 100%;
     }
 }
