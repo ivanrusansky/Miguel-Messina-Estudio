@@ -310,7 +310,7 @@ body {
 }
 
 .logo {
-    max-width: 220px;
+    max-width: 210px;
     height: auto;
     animation: fadeInLogo 1s ease-in-out;
 }
@@ -432,7 +432,7 @@ footer .footer-icons div:hover {
     }
 
     .logo {
-        max-width: 220px !important; /* Reduce el tamaño del logo en mobile */
+        max-width: 210px !important; /* Reduce el tamaño del logo en mobile */
     }
 
     .footer-icons {
