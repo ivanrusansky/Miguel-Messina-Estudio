@@ -508,6 +508,13 @@ footer .footer-icons div:hover {
         margin: 4.5%;
     }
 
+    .miguepre2{
+        font-size: 2.0rem; /* Tamaño más pequeño en PC para mejor encaje */
+        font-weight: 500;
+        margin-bottom: 0rem !important; /* Espacio inferior para separación visual */
+        margin: 4.5%;
+    }
+
     .miguetext{
         margin: 3% !important;
     }
