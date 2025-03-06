@@ -432,7 +432,7 @@ footer .footer-icons div:hover {
     }
 
     .logo {
-        max-width: 150px; /* Reduce el tamaño del logo en mobile */
+        max-width: 270px !important; /* Reduce el tamaño del logo en mobile */
     }
 
     .footer-icons {
