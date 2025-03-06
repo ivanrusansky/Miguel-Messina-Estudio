@@ -462,7 +462,15 @@ footer .footer-icons div:hover {
         font-size: 0.9rem; /* Tamaño más pequeño en mobile para mejor encaje */
         font-weight: 500;
         margin-top: 20%; /* Reducido para mejor integración visual */
+        margin-bottom: 15%;
         margin-left: 3%;
+
+    }
+    .miguepre {
+        font-size: 0.9rem; /* Tamaño más pequeño en mobile para mejor encaje */
+        font-weight: 500;
+        margin-top: 20%; /* Reducido para mejor integración visual */
+        
 
     }
 }
