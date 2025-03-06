@@ -234,6 +234,10 @@ body {
     animation-duration: 18s; /* 3 imágenes, 6s por imagen */
 }
 
+#proyectos-content .d-none.d-md-block .gallery[data-images="9"] {
+    animation-duration: 54s; /* 9 imágenes, 6s por imagen - Corrección para Casas */
+}
+
 @keyframes slide {
     0% {
         transform: translateX(0);
@@ -454,10 +458,12 @@ footer .footer-icons div:hover {
         margin: 3%;
     }
 
-    .miguepre {
+    .miguepre2 {
         font-size: 0.9rem; /* Tamaño más pequeño en mobile para mejor encaje */
         font-weight: 500;
-        margin-top: 5%; /* Reducido para mejor integración visual */
+        margin-top: 20%; /* Reducido para mejor integración visual */
+        margin-left: 3%;
+
     }
 }
 
