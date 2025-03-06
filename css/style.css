@@ -12,9 +12,11 @@ body {
     background-color: #ffffff;
     color: #000000;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
 /* Estilo del navbar */
@@ -26,7 +28,9 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
-    z-index: 20; /* Aseguramos que el navbar esté por encima del carrusel */
+    z-index: 20;
+    width: 100%; /* Asegura que no exceda el viewport */
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
 .navbar-toggler {
@@ -51,7 +55,7 @@ body {
 }
 
 .navbar-menu.active {
-    max-height: 3000px; /* Aumentado para dar espacio a las imágenes completas */
+    max-height: 3000px;
     opacity: 1;
     background-color: #f8f8f8;
     padding: 0.5rem 0;
@@ -59,7 +63,7 @@ body {
 
 /* Estilo del contenido desplegable */
 .menu-item {
-    margin: 0.5rem 0;
+    margin: 0;
     position: relative;
 }
 
@@ -69,7 +73,7 @@ body {
     background-color: #f8f8f8;
     color: #000000;
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 500;
     transition: transform 0.2s ease;
     display: block;
     width: 100%;
@@ -100,20 +104,33 @@ body {
 }
 
 .content {
-    padding: 0; /* Eliminamos padding para que los carruseles usen todo el espacio */
+    padding: 0;
     background-color: #f8f8f8;
-    font-weight: 600;
-    margin: 0; /* Eliminamos márgenes para evitar espacios extra */
+    font-weight: 300;
+    margin: 0;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
-    position: relative; /* Aseguramos que el contenido fluya normalmente */
+    position: relative;
+    width: 100%; /* Asegura que no exceda el viewport */
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
 .content.active {
-    max-height: 3000px; /* Aumentado para dar espacio a las imágenes completas */
+    max-height: 3000px;
     opacity: 1;
+}
+
+/* Nuevo contenedor para alinear textos en PC */
+.acerca-text-container {
+    padding: 0 3%; /* Espacio lateral uniforme */
+}
+
+/* Estilo de los textos en Acerca de Nosotros y Miguel Messina */
+.pservicios, .acerca-migue-text {
+    margin: 0; /* Elimina márgenes para alinear correctamente */
+    text-align: justify; /* Justifica el texto */
 }
 
 /* Estilo de los carruseles en Proyectos (mobile, max-width: 767px) */
@@ -123,28 +140,28 @@ body {
     font-weight: 300;
     text-align: center;
     margin: 1.5rem 0 1rem;
-    padding: 0 1rem; /* Añadimos padding solo al título para mantener un poco de espacio */
+    padding: 0 1rem;
 }
 
 #proyectos-content .d-md-none .carousel {
     margin-bottom: 2rem;
-    width: 100% !important; /* Usamos 100% del ancho del contenedor padre */
-    padding: 0; /* Sin padding interno */
-    margin-left: 0; /* Eliminamos márgenes laterales */
-    margin-right: 0%; /* Eliminamos márgenes laterales */
+    width: 100% !important;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #proyectos-content .d-md-none .carousel-inner {
     width: 100%;
-    height: auto; /* Permitimos que el contenedor se adapte a la imagen */
-    margin: 0; /* Sin márgenes */
+    height: auto;
+    margin: 0;
 }
 
 #proyectos-content .d-md-none .carousel-inner img {
     width: 100%;
-    height: auto; /* Imágenes completas sin recorte */
-    object-fit: contain; /* Mantiene la proporción sin recortar */
-    border-radius: 4px; /* Eliminamos el borde para que ocupe todo el ancho */
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
     filter: brightness(80%);
     transition: transform 0.5s ease;
 }
@@ -155,24 +172,24 @@ body {
 
 #proyectos-content .d-md-none .carousel-control-prev,
 #proyectos-content .d-md-none .carousel-control-next {
-    width: 10%; /* Reducimos el ancho para un diseño más compacto */
-    opacity: 0.7; /* Ajustamos opacidad para mejor visibilidad */
+    width: 10%;
+    opacity: 0.7;
 }
 
 #proyectos-content .d-md-none .carousel-control-prev-icon,
 #proyectos-content .d-md-none .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.7); /* Mantenemos el fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50%;
-    padding: 10px; /* Reducimos el padding para hacer los círculos más pequeños */
-    width: 20px; /* Mantenemos el tamaño de las flechas */
-    height: 20px; /* Mantenemos el tamaño de las flechas */
-    background-size: 60%; /* Ajustamos el tamaño de las flechas dentro del círculo */
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: 60%;
 }
 
 /* Estilo de las galerías en Proyectos (PC, min-width: 768px) */
 #proyectos-content .d-none.d-md-block .gallery-section {
     margin-bottom: 2rem;
-    padding: 0; /* Sin padding interno */
+    padding: 0;
 }
 
 #proyectos-content .d-none.d-md-block .gallery-section h2.h2s {
@@ -182,72 +199,83 @@ body {
     text-align: start;
     margin: 1.5rem 0 1rem;
     margin-top: 6%;
-    padding: 0 1rem; /* Añadimos padding solo al título para mantener un poco de espacio */
+    padding: 0 1rem;
+}
+
+#proyectos-content .d-none.d-md-block .gallery-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Ocultar el contenido que se sale del contenedor */
 }
 
 #proyectos-content .d-none.d-md-block .gallery {
     display: flex;
-    flex-wrap: nowrap; /* Imágenes en una fila sin romper */
-    justify-content: flex-start; /* Alineamos las imágenes al inicio */
-    gap: 0; /* Sin espacio entre imágenes */
-    padding: 0; /* Sin padding interno */
-    margin: 0; /* Sin márgenes */
-    overflow-x: auto; /* Permite desplazamiento horizontal si las imágenes exceden el ancho */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en mobile si es necesario */
-    scrollbar-width: thin; /* Firefox: barra de desplazamiento fina */
-    scrollbar-color: #000000 transparent; /* Firefox: barra negra, fondo transparente */
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    animation: slide infinite linear; /* Animación infinita */
 }
 
-/* Estilo personalizado de la barra de desplazamiento para navegadores WebKit (Chrome, Safari, Edge) */
-#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar {
-    width: 6px; /* Ancho de la barra (fina) */
-    height: 6px; /* Altura de la barra (fina) */
+#proyectos-content .d-none.d-md-block .gallery[data-images="10"] {
+    animation-duration: 60s; /* 10 imágenes, 6s por imagen */
 }
 
-#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-track {
-    background: transparent; /* Fondo transparente */
+#proyectos-content .d-none.d-md-block .gallery[data-images="4"] {
+    animation-duration: 24s; /* 4 imágenes, 6s por imagen */
 }
 
-#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-thumb {
-    background-color: #000000; /* Barra negra */
-    border-radius: 3px; /* Bordes ligeramente redondeados para minimalismo */
+#proyectos-content .d-none.d-md-block .gallery[data-images="8"] {
+    animation-duration: 48s; /* 8 imágenes, 6s por imagen */
 }
 
-#proyectos-content .d-none.d-md-block .gallery::-webkit-scrollbar-thumb:hover {
-    background-color: #333333; /* Cambia a un gris oscuro al pasar el ratón, manteniendo minimalismo */
+#proyectos-content .d-none.d-md-block .gallery[data-images="3"] {
+    animation-duration: 18s; /* 3 imágenes, 6s por imagen */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Mover la mitad del ancho total (original + clones) */
+    }
 }
 
 #proyectos-content .d-none.d-md-block .gallery-img {
-    width: 600px; /* Tamaño exacto de las imágenes según tu solicitud */
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Ajusta las imágenes para llenar el espacio sin distorsionar */
-    border-radius: 0 ; /* Sin bordes redondeados */
+    width: 600px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
     filter: brightness(80%);
-    
 }
-
 
 /* Estilo del carrusel principal (mobile y desktop) */
 .carousel-mobile,
 .carousel-desktop {
     position: relative;
     width: 100%;
-    z-index: 10; /* Por debajo del navbar pero visible */
+    z-index: 10;
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
 .carousel-mobile .carousel-inner,
 .carousel-desktop .carousel-inner {
     position: relative;
     width: 100%;
-    height: auto; /* Restauramos altura natural */
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .carousel-mobile .carousel-item img,
 .carousel-desktop .carousel-item img {
     filter: brightness(70%);
     width: 100%;
-    height: auto; /* Escala original */
+    height: auto;
     animation: fadeInImage 1s ease-in-out;
+    object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
 }
 
 @keyframes fadeInImage {
@@ -267,7 +295,7 @@ body {
 
 .background {
     position: absolute;
-    z-index: 15; /* Encima de las imágenes del carrusel pero debajo del navbar */
+    z-index: 15;
     top: 0;
     left: 0;
     width: 100%;
@@ -280,7 +308,7 @@ body {
 .logo {
     max-width: 200px;
     height: auto;
-    animation: fadeInLogo 1.5s ease-in-out;
+    animation: fadeInLogo 1s ease-in-out;
 }
 
 @keyframes fadeInLogo {
@@ -294,8 +322,11 @@ body {
     }
 }
 
-.carousel-desktop .logo {
-    max-width: 300px;
+/* Ajuste del logo en desktop */
+@media (min-width: 768px) {
+    .carousel-desktop .logo {
+        max-width: 400px;
+    }
 }
 
 /* Ocultar carrusel original en PC */
@@ -319,55 +350,114 @@ footer {
     align-items: center;
     margin: 2.5% 0;
     padding: 5px 10px;
-    width: auto;
+    width: 100%; /* Asegura que no exceda el viewport */
     background-color: #fff;
-    position: relative; /* Fluye normalmente en el diseño */
-    z-index: 20; /* Por encima del carrusel */
+    position: relative;
+    z-index: 20;
+    flex-direction: column;
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
-footer div {
-    margin: 0 30px;
+/* Contenedor de los íconos */
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Estilo de los íconos individuales */
+footer .footer-icons div {
+    margin: 0;
     padding: 0;
     transition: transform 0.3s ease;
 }
 
-footer div:hover {
+footer .footer-icons div:hover {
     transform: scale(0.9);
+}
+
+/* Estilo para el texto del footer */
+.footer-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #000000;
+    font-weight: 300;
+}
+
+/* Estilo general para .pservicios */
+.pservicios {
+    text-align: justify;
+    margin: 3%;
 }
 
 /* Ajustes específicos para mobile */
 @media (max-width: 767px) {
-    footer div {
-        margin: 0 15px;
+    .navbar {
+        padding: 0.5rem; /* Reduce el padding para evitar exceso de espacio */
+    }
+
+    .navbar-menu {
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        padding: 0 1rem; /* Ajusta el padding para mobile */
+    }
+
+    .carousel-mobile {
+        margin: 0;
+        padding: 0;
+    }
+
+    .carousel-mobile .carousel-inner {
+        width: 100%;
+        overflow: hidden; /* Evita desbordamiento en el carrusel */
+    }
+
+    .carousel-mobile .carousel-item img {
+        max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+        width: 100%;
+        height: auto;
+    }
+
+    .background {
+        width: 100%;
+        padding: 0;
+    }
+
+    .logo {
+        max-width: 150px; /* Reduce el tamaño del logo en mobile */
+    }
+
+    .footer-icons {
+        gap: 15px;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        margin-top: 10px;
     }
 
     .imgmigue {
         max-width: 100%;
         height: auto;
         width: 100%;
+        margin: 0;
         margin-top: 10%;
-        margin-bottom: -5%;
         border-radius: 4px;
     }
 
     .acerca-migue-text {
-        text-align: justify !important;
+        text-align: justify;
         margin: 3%;
-        margin-top: -20%;
     }
 
-    .pservicios{
-
-            text-align: justify !important;
-            margin: 3%;
-            
-        }
-    
-
     .miguepre {
-        font-size: 1.3rem !important;
-        font-weight: 300;
-        
+        font-size: 0.9rem; /* Tamaño más pequeño en mobile para mejor encaje */
+        font-weight: 500;
+        margin-top: 5%; /* Reducido para mejor integración visual */
     }
 }
 
@@ -377,41 +467,48 @@ footer div:hover {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 1rem;
+        gap: 0;
+        margin: 0;
+        padding: 0;
     }
-
     .acerca-migue-text {
         width: 50%;
-        margin-left: 2%;
-        text-align: justify !important;
-        
+        margin: 3%;
+        text-align: justify;
     }
-
-    .pservicios{
-
-        text-align: justify !important;
-        margin: 5%;
-        margin-top: 5%;
-        
-    }
-
     .imgmigue {
         width: 450px;
         max-width: 50%;
-        margin-top: 0;
-        margin-left: 7.5%;
+        margin: 0;
         display: block;
         border-radius: 4px;
     }
+    .pservicios {
+        margin: 4.5%;
+    }
 
-    .carousel-desktop .logo {
-        max-width: 250px;
+    .miguepre {
+        font-size: 2.0rem; /* Tamaño más pequeño en PC para mejor encaje */
+        font-weight: 500;
+        margin-bottom: 0rem !important; /* Espacio inferior para separación visual */
+        margin: 4.5%;
+    }
+
+    .miguetext{
+        margin: 3% !important;
     }
 }
 
-.miguepre {
-    font-size: 2.2rem;
-    font-weight: 300;
+/* Asegurar que las imágenes no excedan el ancho del contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Asegurar que los contenedores no excedan el ancho del viewport */
+.content, .acerca-migue-container, .carousel-inner {
+    max-width: 100%;
+    box-sizing: border-box; /* Incluye padding y bordes en el ancho */
 }
 
 /* Responsive Design para navbar */
