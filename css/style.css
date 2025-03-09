@@ -230,12 +230,12 @@ body {
     animation-duration: 48s; /* 8 imágenes, 6s por imagen */
 }
 
-#proyectos-content .d-none.d-md-block .gallery[data-images="3"] {
-    animation-duration: 18s; /* 3 imágenes, 6s por imagen */
+#proyectos-content .d-none.d-md-block .gallery[data-images="9"] {
+    animation-duration: 54s; /* 9 imágenes, 6s por imagen */
 }
 
-#proyectos-content .d-none.d-md-block .gallery[data-images="9"] {
-    animation-duration: 54s; /* 9 imágenes, 6s por imagen - Corrección para Casas */
+#proyectos-content .d-none.d-md-block .gallery[data-images="5"] {
+    animation-duration: 30s; /* 5 imágenes, 6s por imagen - Corregido para Concursos */
 }
 
 @keyframes slide {
@@ -464,14 +464,11 @@ footer .footer-icons div:hover {
         margin-top: 20%; /* Reducido para mejor integración visual */
         margin-bottom: 15%;
         margin-left: 3%;
-
     }
     .miguepre {
         font-size: 0.9rem; /* Tamaño más pequeño en mobile para mejor encaje */
         font-weight: 500;
         margin-top: 20%; /* Reducido para mejor integración visual */
-        
-
     }
 }
 
@@ -508,14 +505,14 @@ footer .footer-icons div:hover {
         margin: 4.5%;
     }
 
-    .miguepre2{
+    .miguepre2 {
         font-size: 2.0rem; /* Tamaño más pequeño en PC para mejor encaje */
         font-weight: 500;
         margin-bottom: 0rem !important; /* Espacio inferior para separación visual */
         margin: 4.5%;
     }
 
-    .miguetext{
+    .miguetext {
         margin: 3% !important;
     }
 }
